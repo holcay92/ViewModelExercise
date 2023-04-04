@@ -10,11 +10,13 @@ import com.example.viewmodelexercise.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainActivityViewModel
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModelFactory: MainActivityViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
+        viewModelFactory = MainActivityViewModelFactory(125)
+        viewModel = ViewModelProvider(this,viewModelFactory)[MainActivityViewModel::class.java]
         binding.tvCount.text = viewModel.getCount().toString()
         binding.tvResult.text = viewModel.getResult().toString()
 

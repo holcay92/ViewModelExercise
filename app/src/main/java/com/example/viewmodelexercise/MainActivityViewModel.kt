@@ -2,15 +2,18 @@ package com.example.viewmodelexercise
 
 import androidx.lifecycle.ViewModel
 
-class MainActivityViewModel: ViewModel() {
+class MainActivityViewModel(startingTotal:Int): ViewModel() {
     private var count = 0
-    private var result = 0
+    private var total = 0
+    init {
+        total = startingTotal
+    }
     fun add(number: Int): Int {
-        result += number
-        return result
+        total += number
+        return total
     }
     fun getResult(): Int {
-        return result
+        return total
     }
     fun getCount(): Int {
         return count
