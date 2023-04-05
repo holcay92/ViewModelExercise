@@ -18,13 +18,13 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModelFactory = MainActivityViewModelFactory(125)
         viewModel = ViewModelProvider(this, viewModelFactory)[MainActivityViewModel::class.java]
+        binding.myViewModel = viewModel
+        binding.lifecycleOwner = this
+
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
         viewModel.totalData.observe(this, Observer {
             binding.tvResult.text = it.toString()
-        })
-        viewModel.countData.observe(this, Observer {
-            binding.tvResult2.text = it.toString()
         })
 
         binding.btnAdd.setOnClickListener {
@@ -35,9 +35,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.setTotal(0)
             }
         }
-        binding.btnAdd2.setOnClickListener {
-            viewModel.setCount()
-        }
+
 
     }
 }
