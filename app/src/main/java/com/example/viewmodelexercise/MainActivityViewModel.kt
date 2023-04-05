@@ -1,25 +1,30 @@
 package com.example.viewmodelexercise
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel(startingTotal:Int): ViewModel() {
-    private var count = 0
-    private var total = 0
+
+    private var total = MutableLiveData<Int>()
+    val totalData : LiveData<Int>
+        get() = total
     init {
-        total = startingTotal
+        total.value = startingTotal
     }
-    fun add(number: Int): Int {
-        total += number
-        return total
+    fun setTotal(input:Int){
+        total.value = (total.value)?.plus(input)
     }
-    fun getResult(): Int {
-        return total
+// -----------------------------------------------------------------------------
+    // example 2
+    private val count = MutableLiveData<Int>()
+    val countData : LiveData<Int>
+        get() = count
+    init {
+        count.value = 0
     }
-    fun getCount(): Int {
-        return count
-    }
-    fun getUpdatedCount(): Int {
-        return ++count
+    fun setCount(){
+        count.value = (count.value)?.plus(1)
     }
 
 }
