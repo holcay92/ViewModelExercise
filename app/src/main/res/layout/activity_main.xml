@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="myViewModel"
+            name="viewModel"
             type="com.example.viewmodelexercise.MainActivityViewModel" />
     </data>
 
@@ -16,89 +16,32 @@
         app:layout_constraintVertical_bias="0.5"
         tools:context=".MainActivity">
 
-        <EditText
-            android:id="@+id/etInput2"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.746"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.134" />
 
         <EditText
-            android:id="@+id/etInput"
-            android:layout_width="100dp"
+            android:id="@+id/etView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.186"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
-
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            app:layout_constraintBottom_toTopOf="@+id/tvResult"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etInput"
-            app:layout_constraintVertical_bias="0.5" />
-
-        <Button
-            android:id="@+id/btnAdd2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            android:onClick="@{() -> myViewModel.setCount()}"
+            android:textSize="40sp"
+            android:text="@={viewModel.userName}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.769"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.346" />
+            app:layout_constraintVertical_bias="0.075" />
 
         <TextView
-            android:id="@+id/tvResult"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="39dp"
-            android:gravity="center"
-            android:text="0"
-            android:textSize="30sp"
+            android:text="@{viewModel.userName}"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.151"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.483" />
-
-        <TextView
-            android:id="@+id/tvResult2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="39dp"
-            android:gravity="center"
-            android:text="@{String.valueOf(myViewModel.countData)}"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.719"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.483" />
-
+            app:layout_constraintVertical_bias="0.246" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
